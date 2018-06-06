@@ -2,11 +2,13 @@ const environment = process.env.NODE.ENV || 'development'
 const config = require('./../knexfile')[environment]
 const connection = require('knex')(config)
 
-function getUsers(testConn) {
+
+
+function addUser (user, testConn) {
     const conn = testConn || connection
-    return conn('users').select()
+    return conn('users').insert(user)
 }
 
 module.exports = {
-    getUsers
+    addUser: addUser
 }

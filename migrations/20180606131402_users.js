@@ -5,8 +5,6 @@ exports.up = function(knex, Promise) {
         table.string('email')
         table.string('password')
         table.string('colour')
-        table.string('firstanimal')
-        table.string('secondanimal')
         table.string('tigername')
     })
 };

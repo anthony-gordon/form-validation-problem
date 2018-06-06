@@ -1,5 +1,6 @@
 var path = require('path')
 var express = require('express')
+const bodyParser = require('body-parser')
 const usersRoute = require('./routes/usersRoute')
 
 var server = express()
