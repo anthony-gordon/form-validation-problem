@@ -9,40 +9,24 @@ class Form extends React.Component {
         super(props)
         this.state = {
             newUser: {},
-            email: '',
-            password: '',
-            colour: '',
-            errorList: [],
         }
         this.validationFunction = this.validationFunction.bind(this)
     }
 
     submitUser(e) {
-        console.log("submit", this.state.newEmail)
+        console.log("submit", this.state.newUser)
         e.preventDefault()
         this.validationFunction()
-        // this.props.dispatch(postUserRequest(this.state.newUser))
-        
-        // const {password, email, colour, animal, tiger_type} = this.state
-        // if (!/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/.test(email)) errorLis.push('email')
-
-        // if (password.length < 8) errorList.push('password')
-
-        // if (colour.length > 0) errorList.push('colour')
-        // this.setState({
-        //     success: errors.length == 0,
-        //     errors
-        //   })
-        // if (errorList.length == 0)  
+        if (this.validationFunction() !== false){
+            this.props.dispatch(postUserRequest(this.state.newUser))
+        }
+        console.log(this.validationFunction()
+    )
         
     }
 
-    // updateEachField(e){
-    //     this.setState({[e.target.name]: e.target.value})
-    // }
-
     updateUserDetails(e){
-        console.log("update", this.state.newEmail)
+        console.log("update", this.state.newUser)
         let newUser = this.state.newUser
         newUser[e.target.name] = e.target.value
         this.setState({newUser})
@@ -136,7 +120,7 @@ else
                             <input onChange={this.updateUserDetails.bind(this)} id="email" type='text' placeholder="Email*" name='email'/>
                             <span className="prompt" id="emailid"></span>
                         </p>
-                        <p>         
+                        <p id="passowordfield">         
                             <input onChange={this.updateUserDetails.bind(this)}placeholder="Password*" id="password" className='error' type='password' name='password'/>
                             <br/>
                             <span className="prompt"  id="passwordid"></span>
@@ -157,7 +141,7 @@ else
                         <br/>
                         <span className="prompt" id="colourid"></span>
                     </p>
-                    <p>         
+                    <div id="checkboxes">         
                         <input  type='checkbox' name='animal' value='bear' id='bear'/>
                         <label className="checkbox" htmlFor='bear'>
                             Bear
@@ -176,8 +160,8 @@ else
                         </label>
                         <br/>
                         <span className="prompt" id="selectionid"></span>
-                    </p>
-                    <p>  
+                    </div>
+                    <p className="tiger">  
                         <input placeholder="Type of tiger (if applicable)" type='text' name='tigername' onChange={this.updateUserDetails.bind(this)} id='tiger_type'/>
                         <br/>
                         <span className="prompt" id="tigerid"></span>
@@ -185,7 +169,7 @@ else
                 </fieldset>
                 <fieldset>
                     <p>
-                        <input  type='submit' value='CREATE ACCOUNT'/>
+                        <input  id="submitbutton" type='submit' value='CREATE ACCOUNT'/>
                     </p>
                 </fieldset>
                 {/* <button id="sizeUpButton" className="visible" onClick="increaseFontSize()">

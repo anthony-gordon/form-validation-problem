@@ -23203,11 +23203,6 @@ var App = function App(props) {
   return _react2.default.createElement(
     'div',
     { className: 'section' },
-    _react2.default.createElement(
-      'h1',
-      { className: 'has-text-centered title is-1' },
-      'Hello world'
-    ),
     _react2.default.createElement(_Form2.default, null)
   );
 };
@@ -23254,11 +23249,7 @@ var Form = function (_React$Component) {
         var _this = _possibleConstructorReturn(this, (Form.__proto__ || Object.getPrototypeOf(Form)).call(this, props));
 
         _this.state = {
-            newUser: {},
-            email: '',
-            password: '',
-            colour: '',
-            errorList: []
+            newUser: {}
         };
         _this.validationFunction = _this.validationFunction.bind(_this);
         return _this;
@@ -23267,32 +23258,18 @@ var Form = function (_React$Component) {
     _createClass(Form, [{
         key: 'submitUser',
         value: function submitUser(e) {
-            console.log("submit", this.state.newEmail);
+            console.log("submit", this.state.newUser);
             e.preventDefault();
             this.validationFunction();
-            // this.props.dispatch(postUserRequest(this.state.newUser))
-
-            // const {password, email, colour, animal, tiger_type} = this.state
-            // if (!/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/.test(email)) errorLis.push('email')
-
-            // if (password.length < 8) errorList.push('password')
-
-            // if (colour.length > 0) errorList.push('colour')
-            // this.setState({
-            //     success: errors.length == 0,
-            //     errors
-            //   })
-            // if (errorList.length == 0)  
+            if (this.validationFunction() !== false) {
+                this.props.dispatch((0, _emails.postUserRequest)(this.state.newUser));
+            }
+            console.log(this.validationFunction());
         }
-
-        // updateEachField(e){
-        //     this.setState({[e.target.name]: e.target.value})
-        // }
-
     }, {
         key: 'updateUserDetails',
         value: function updateUserDetails(e) {
-            console.log("update", this.state.newEmail);
+            console.log("update", this.state.newUser);
             var newUser = this.state.newUser;
             newUser[e.target.name] = e.target.value;
             this.setState({ newUser: newUser });
@@ -23387,7 +23364,7 @@ var Form = function (_React$Component) {
                             ),
                             _react2.default.createElement(
                                 'p',
-                                null,
+                                { id: 'passowordfield' },
                                 _react2.default.createElement('input', { onChange: this.updateUserDetails.bind(this), placeholder: 'Password*', id: 'password', className: 'error', type: 'password', name: 'password' }),
                                 _react2.default.createElement('br', null),
                                 _react2.default.createElement('span', { className: 'prompt', id: 'passwordid' })
@@ -23443,8 +23420,8 @@ var Form = function (_React$Component) {
                             _react2.default.createElement('span', { className: 'prompt', id: 'colourid' })
                         ),
                         _react2.default.createElement(
-                            'p',
-                            null,
+                            'div',
+                            { id: 'checkboxes' },
                             _react2.default.createElement('input', { type: 'checkbox', name: 'animal', value: 'bear', id: 'bear' }),
                             _react2.default.createElement(
                                 'label',
@@ -23474,7 +23451,7 @@ var Form = function (_React$Component) {
                         ),
                         _react2.default.createElement(
                             'p',
-                            null,
+                            { className: 'tiger' },
                             _react2.default.createElement('input', { placeholder: 'Type of tiger (if applicable)', type: 'text', name: 'tigername', onChange: this.updateUserDetails.bind(this), id: 'tiger_type' }),
                             _react2.default.createElement('br', null),
                             _react2.default.createElement('span', { className: 'prompt', id: 'tigerid' })
@@ -23486,7 +23463,7 @@ var Form = function (_React$Component) {
                         _react2.default.createElement(
                             'p',
                             null,
-                            _react2.default.createElement('input', { type: 'submit', value: 'CREATE ACCOUNT' })
+                            _react2.default.createElement('input', { id: 'submitbutton', type: 'submit', value: 'CREATE ACCOUNT' })
                         )
                     )
                 )

@@ -12,9 +12,18 @@ body {
     font-family: 'Roboto', Helvetica, sans-serif;
 }
 
-h1, h3 {
+h1 {
+    margin: 20px 0;
     color: white;
-    font-style: normal;
+    font-weight: bold;
+    font-size: 2em;
+}
+
+h3 {
+    margin: 10px 0;
+    color: white;
+    font-weight: bold;
+    font-size:1.5em;
 }
 
 h1:first-child {
@@ -64,7 +73,7 @@ input[type='password'] {
     padding: .5em .5em;
     color: #576774;
     background-color:#122932;
-    width: 96%;
+    width: 100%;
 }
 
 input[type='submit'] {
@@ -93,6 +102,10 @@ label + input[type=checkbox] {
     margin-left: 1em;
 }
 
+.tiger {
+    margin-bottom: 20px;
+}
+
 select {
     width: 17em;
 }
@@ -102,8 +115,20 @@ fieldset {
     padding: 0;
 }
 
+#passowordfield{
+    margin: 20px 0;
+}
+
+#checkboxes {
+    padding: 10px 0;
+}
+
 fieldset + fieldset {
     border-top: solid 1px #eee;
+}
+
+#submitbutton {
+    margin-top: 20px;
 }
 
 .label {   
