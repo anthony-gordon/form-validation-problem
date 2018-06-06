@@ -13,26 +13,28 @@ class Form extends React.Component {
         this.validationFunction = this.validationFunction.bind(this)
     }
 
+// If the validaion function does not return false, it will be allowed to post the data to the database
+
     submitUser(e) {
         console.log("submit", this.state.newUser)
         e.preventDefault()
         this.validationFunction()
         if (this.validationFunction() !== false){
             this.props.dispatch(postUserRequest(this.state.newUser))
+            window.alert("Thanks for submitting your details!")
         }
         console.log(this.validationFunction()
-    )
-        
+    )     
     }
+
+// this function updates the 'newUser' part of the state every time something is entered into a field
 
     updateUserDetails(e){
         console.log("update", this.state.newUser)
         let newUser = this.state.newUser
         newUser[e.target.name] = e.target.value
         this.setState({newUser})
-    }
-
-    
+    } 
 
  validationFunction(){
     var email = document.getElementById('email').value
@@ -103,10 +105,8 @@ else
         return false
     }
     else document.getElementById("tigerid").innerHTML = "";
-
-    
+   
 }
-
 
     render(){
     return (
@@ -142,19 +142,19 @@ else
                         <span className="prompt" id="colourid"></span>
                     </p>
                     <div id="checkboxes">         
-                        <input  type='checkbox' name='animal' value='bear' id='bear'/>
+                        <input onChange={this.updateUserDetails.bind(this)} type='checkbox' name='bear' value='selected' id='bear'/>
                         <label className="checkbox" htmlFor='bear'>
                             Bear
                         </label>
-                        <input  type='checkbox' name='animal' value='tiger' id='tiger'/>
+                        <input onChange={this.updateUserDetails.bind(this)} type='checkbox' name='tiger' value='selected' id='tiger'/>
                         <label className="checkbox"htmlFor='tiger'>
                             Tiger
                         </label>
-                        <input  type='checkbox' name='animal' value='snake' id='snake'/>
+                        <input onChange={this.updateUserDetails.bind(this)} type='checkbox' name='snake' value='selected' id='snake'/>
                         <label className="checkbox" htmlFor='snake'>
                             Snake
                         </label>
-                        <input  type='checkbox' name='animal' value='donkey' id='donkey'/>
+                        <input onChange={this.updateUserDetails.bind(this)} type='checkbox' name='donkey' value='selected' id='donkey'/>
                         <label className="checkbox" htmlFor='donkey'>
                             Donkey
                         </label>
@@ -172,12 +172,7 @@ else
                         <input  id="submitbutton" type='submit' value='CREATE ACCOUNT'/>
                     </p>
                 </fieldset>
-                {/* <button id="sizeUpButton" className="visible" onClick="increaseFontSize()">
-                    <h3 className="button-title" >WORDS TOO SMALL? CLICK HERE</h3>
-                </button>
-                <button id="sizeDownButton" className="invisible" onClick="decreaseFontSize()">
-                    <h3 className="button-title">CHANGE WORD SIZE BACK</h3>
-                </button> */}
+                
             </form>
         </div>  
     )

@@ -23255,6 +23255,8 @@ var Form = function (_React$Component) {
         return _this;
     }
 
+    // If the validaion function does not return false, it will be allowed to post the data to the database
+
     _createClass(Form, [{
         key: 'submitUser',
         value: function submitUser(e) {
@@ -23263,9 +23265,13 @@ var Form = function (_React$Component) {
             this.validationFunction();
             if (this.validationFunction() !== false) {
                 this.props.dispatch((0, _emails.postUserRequest)(this.state.newUser));
+                window.alert("Thanks for submitting your details!");
             }
             console.log(this.validationFunction());
         }
+
+        // this function updates the 'newUser' part of the state every time something is entered into a field
+
     }, {
         key: 'updateUserDetails',
         value: function updateUserDetails(e) {
@@ -23422,25 +23428,25 @@ var Form = function (_React$Component) {
                         _react2.default.createElement(
                             'div',
                             { id: 'checkboxes' },
-                            _react2.default.createElement('input', { type: 'checkbox', name: 'animal', value: 'bear', id: 'bear' }),
+                            _react2.default.createElement('input', { onChange: this.updateUserDetails.bind(this), type: 'checkbox', name: 'bear', value: 'selected', id: 'bear' }),
                             _react2.default.createElement(
                                 'label',
                                 { className: 'checkbox', htmlFor: 'bear' },
                                 'Bear'
                             ),
-                            _react2.default.createElement('input', { type: 'checkbox', name: 'animal', value: 'tiger', id: 'tiger' }),
+                            _react2.default.createElement('input', { onChange: this.updateUserDetails.bind(this), type: 'checkbox', name: 'tiger', value: 'selected', id: 'tiger' }),
                             _react2.default.createElement(
                                 'label',
                                 { className: 'checkbox', htmlFor: 'tiger' },
                                 'Tiger'
                             ),
-                            _react2.default.createElement('input', { type: 'checkbox', name: 'animal', value: 'snake', id: 'snake' }),
+                            _react2.default.createElement('input', { onChange: this.updateUserDetails.bind(this), type: 'checkbox', name: 'snake', value: 'selected', id: 'snake' }),
                             _react2.default.createElement(
                                 'label',
                                 { className: 'checkbox', htmlFor: 'snake' },
                                 'Snake'
                             ),
-                            _react2.default.createElement('input', { type: 'checkbox', name: 'animal', value: 'donkey', id: 'donkey' }),
+                            _react2.default.createElement('input', { onChange: this.updateUserDetails.bind(this), type: 'checkbox', name: 'donkey', value: 'selected', id: 'donkey' }),
                             _react2.default.createElement(
                                 'label',
                                 { className: 'checkbox', htmlFor: 'donkey' },

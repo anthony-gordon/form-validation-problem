@@ -5,6 +5,10 @@ exports.up = function(knex, Promise) {
         table.string('email')
         table.string('password')
         table.string('colour')
+        table.string('bear')
+        table.string('tiger')
+        table.string('snake')
+        table.string('donkey')
         table.string('tigername')
     })
 };
