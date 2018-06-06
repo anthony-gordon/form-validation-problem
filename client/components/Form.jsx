@@ -14,28 +14,32 @@ class Form extends React.Component {
             colour: '',
             errorList: [],
         }
+        this.validationFunction = this.validationFunction.bind(this)
     }
 
     submitUser(e) {
         console.log("submit", this.state.newEmail)
         e.preventDefault()
-        const {password, email, colour, animal, tiger_type} = this.state
-        if (!/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/.test(email)) errorLis.push('email')
+        this.validationFunction()
+        // this.props.dispatch(postUserRequest(this.state.newUser))
+        
+        // const {password, email, colour, animal, tiger_type} = this.state
+        // if (!/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/.test(email)) errorLis.push('email')
 
-        if (password.length < 8) errorList.push('password')
+        // if (password.length < 8) errorList.push('password')
 
-        if (colour.length > 0) errorList.push('colour')
-        this.setState({
-            success: errors.length == 0,
-            errors
-          })
-        if (errorList.length == 0)  
-        this.props.dispatch(postUserRequest(this.state.newUser))
+        // if (colour.length > 0) errorList.push('colour')
+        // this.setState({
+        //     success: errors.length == 0,
+        //     errors
+        //   })
+        // if (errorList.length == 0)  
+        
     }
 
-    updateEachField(e){
-        this.setState({[e.target.name]: e.target.value})
-    }
+    // updateEachField(e){
+    //     this.setState({[e.target.name]: e.target.value})
+    // }
 
     updateUserDetails(e){
         console.log("update", this.state.newEmail)
@@ -123,7 +127,7 @@ else
     render(){
     return (
         <div>
-            <form  onSubmit={this.validationFunction.bind(this)} >
+            <form  onSubmit={this.submitUser.bind(this)} >
                 <h1>Fill Out This Awesome Form</h1>
                 <fieldset>
                     <div>
