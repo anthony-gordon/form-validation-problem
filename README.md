@@ -2,6 +2,8 @@ Hi there Springload! I thought I would provide a quick run down of what I have d
 
 I have made this form a full stack app. It will only submit if all the conditions are satisfied, and if they are satisfied they will post to a table inside a SQLite database located inside the app. If a condition is not satisfied when submit is clicked, the class of the parent element will be changed to 'error' and the element's colour will change to red. This is acheived using JavaScript with React and Redux.
 
+To get it working, install node dependencies (yarn or npm install) and then run the database migrations and seed data  (knex migrate:latest // knex seed:run, possibly with 'yarn' or 'npm' before the knex commands, depending on your set up). 
+
 I also spent a bit of time making the form look a bit more visually appealling and user friendly with CSS. I figured the less words that were initially visible on screen, the easier it would be for the user to understand. 
 
 Beyond the problem statement I paid attention to the following:
