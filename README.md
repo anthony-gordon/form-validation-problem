@@ -1,6 +1,6 @@
 Hi there Springload! I thought I would provide a quick run down of what I have done during this exercise.
 
-The form is fully functional. It will only submit if all the conditions are satisfied. If a condition is not satisfied when submit is clicked, the class of the parent element will be changed to 'error' and the element's colour will change to red.
+The form is functional. It will only submit if all the conditions are satisfied. If a condition is not satisfied when submit is clicked, the class of the parent element will be changed to 'error' and the element's colour will change to red.
 
 I also spent a bit of time making the form look a bit more visually appealling and user friendly with CSS. I figured the less words that were initially visible on screen, the easier it would be for the user to understand. 
 
@@ -8,7 +8,7 @@ Beyond the problem statement I paid attention to the following:
 
 - Documentation
 
-I commented on my JavaScript code while I was working on it. This made it easier for me to come back and immediately register what this code was for, and it also makes it easier for another developer to come along and be able to jump straight in without first having to figure out what everything does.
+I commented alongside my JavaScript code while I was working on it. This made it easier for me to come back and immediately register what this code was for, and it also makes it easier for another developer to come along and be able to jump straight in without first having to figure out what everything does.
 The CSS file is divided into catagories and the read-me has been re-written.
 
 - Accessibility
